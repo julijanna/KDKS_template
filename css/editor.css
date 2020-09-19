@@ -1,0 +1,100 @@
+div {
+  /* border: 1px solid yellow; */
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/templates/KDKS/fonts/Oswald-VariableFont_wght.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/templates/KDKS/fonts/OpenSans-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Open Sans";
+}
+
+h1,
+h3 {
+  font-family: "Oswald";
+}
+
+ul li {
+  list-style: none;
+  display: inline;
+  padding-right: 30px;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .top_menu {
+    display: grid;
+    grid-template-columns: 350px 700px 150px;
+    grid-template-rows: 70px 100px;
+    grid-template-areas:
+      "logo social languages"
+      "logo menu menu";
+    justify-content: center;
+    font-family: "Oswald";
+    border-bottom: 1px solid #dadada;
+    width: 1200px;
+    margin: auto;
+  }
+
+  .logo {
+    grid-area: logo;
+    display: block;
+    margin: auto 5%;
+    width: 250px;
+  }
+
+  .logo_photo {
+    width: 130%;
+  }
+
+  .social {
+    grid-area: social;
+    color: red;
+    float: right;
+    padding-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  .languages {
+    grid-area: languages;
+    margin-left: auto;
+    padding-top: 5px;
+    font-size: 1em;
+    color: red;
+  }
+
+  .languages ul li {
+    padding: 0 10px;
+  }
+
+  #de__main {
+    border-right: 1px solid red;
+    padding-right: 14px;
+  }
+
+  .main_menu {
+    grid-area: menu;
+    border-top: 1px solid #dadada;
+    font-size: 1.8em;
+    padding-right: 10px;
+  }
+}
