@@ -38,7 +38,7 @@ a:hover {
   cursor: pointer;
 }
 
-.top__menu ul li {
+.languages ul li {
   list-style: none;
   display: inline;
   padding-right: 30px;
@@ -47,15 +47,48 @@ a:hover {
 .top__menu {
   display: grid;
   grid-template-columns: minmax(43px, 0.2fr) 0.8fr 1fr 1fr;
-  grid-template-areas: "menu blank logo languages";
+  grid-template-areas:
+    "burger space logo languages"
+    "menu menu menu menu"
+    "social social social social";
   justify-content: center;
   font-family: var(--menu-font);
   border-bottom: 1px solid var(--horizontal-dividers-color);
   width: 100%;
 }
 
-.burger__menu {
+.desktop__content {
+  display: none;
+}
+
+.desktop__content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.desktop__content ul li {
+  padding-left: 0;
+  padding-bottom: 10%;
+}
+
+.main__menu {
   grid-area: menu;
+  font-size: 1.2em;
+  border-top: 1px solid var(--horizontal-dividers-color);
+  border-bottom: 1px solid var(--horizontal-dividers-color);
+  text-align: center;
+  justify-content: center;
+}
+
+.social {
+  grid-area: social;
+  text-align: center;
+  justify-content: center;
+  color: var(--main-red-color);
+}
+
+.burger__menu {
+  grid-area: burger;
 }
 
 /* Mobile Menu Trigger
@@ -150,12 +183,21 @@ a:hover {
   padding-right: 14px;
 }
 
-.main_menu,
-.social {
-  display: none;
-}
-
 @media (min-width: 600px) {
+  .desktop__content {
+    display: block;
+  }
+
+  .mobile__content {
+    display: none;
+  }
+
+  .top__menu ul li {
+    list-style: none;
+    display: inline;
+    padding-right: 30px;
+  }
+
   .top__menu {
     grid-template-columns: 80px 370px 150px;
     grid-template-rows: 55px 70px;
@@ -167,7 +209,6 @@ a:hover {
   }
 
   .logo {
-    display: block;
     margin: 3% 3%;
     width: 175px;
   }
@@ -177,14 +218,11 @@ a:hover {
   }
 
   .social {
-    display: block;
-    grid-area: social;
-    color: var(--main-red-color);
-    font-size: 1em;
+    padding-left: 35px;
+    text-align: left;
   }
 
   .languages {
-    grid-area: languages;
     margin-left: auto;
     padding-top: 5px;
     font-size: 0.9em;
@@ -199,11 +237,12 @@ a:hover {
     padding-right: 14px;
   }
 
-  .main_menu {
-    display: block;
+  .main__menu {
     grid-area: menu;
     border-top: 1px solid var(--horizontal-dividers-color);
     font-size: 1.3em;
+    text-align: left;
+    border-bottom: none;
   }
 
   .nav-pills.nav.menu.mod-list {
@@ -258,7 +297,7 @@ a:hover {
     font-size: 1em;
   }
 
-  .main_menu {
+  .main__menu {
     grid-area: menu;
     border-top: 1px solid var(--horizontal-dividers-color);
     font-size: 1.8em;

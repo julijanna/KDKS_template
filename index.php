@@ -28,7 +28,15 @@ defined('_JEXEC') or die;
         <div class='logo'>
             <img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" alt="Custom image" class="logo_photo" />
         </div>
-        <div class='social'>
+        <a id="burger__menu" class="burger__menu mobile__content" role="button" aria-label="Menu">
+            <div class="burger__menu__box">
+                <div class="burger__menu__inner"></div>
+            </div>
+        </a>
+        <div class='main__menu desktop__content'>
+            <jdoc:include type="modules" name="position-1" style="none" />
+        </div>
+        <div class='social desktop__content'>
             <jdoc:include type="modules" name="position-2" style="none" />
         </div>
         <div class='languages'>
@@ -37,14 +45,6 @@ defined('_JEXEC') or die;
                 <li id='fr__main'><a href="https://kraftdreikampf.ch//">FR</a></li>
             </ul>
         </div>
-        <div class='main_menu'>
-            <jdoc:include type="modules" name="position-1" style="none" />
-        </div>
-        <a id="burger__menu" class="burger__menu" role="button" aria-label="Menu">
-            <div class="burger__menu__box">
-                <div class="burger__menu__inner"></div>
-            </div>
-        </a>
 
     </section>
 
