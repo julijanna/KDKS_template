@@ -47,6 +47,19 @@ defined('_JEXEC') or die;
         </div>
 
     </section>
+    <section class='main__section'>
+        <div class='slideshow desktop__content'>
+            <jdoc:include type="modules" name="position-4" style="none" />
+        </div>
+        <div class='articles'>
+            <h1>KDK Schweiz News</h1>
+            <jdoc:include type="modules" name="position-5" style="none" />
+        </div>
+    </section>
+
+    <section class='footer'>
+        <p class='footer__text'>Datenschutz / Impressum</p>
+    </section>
 
     <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/js/app.js"></script>
 </body>

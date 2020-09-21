@@ -5,9 +5,12 @@
   --horizontal-dividers-color: #aeaeae;
   --menu-font: "Oswald";
   --body-font: "Open Sans";
+  --desktop-width-large: 1200px;
+  --desktop-width-small: 850px;
+  --tablet-width: 600px;
 }
-
-/* div {
+/* 
+div {
   border: 1px solid yellow;
 } */
 
@@ -25,6 +28,13 @@ body {
   background-color: var(--background-color);
   color: var(--main-font-color);
   font-family: "Open Sans";
+}
+
+h1 {
+  color: var(--main-red-color);
+  padding-bottom: 5%;
+  border-bottom: 1px solid var(--horizontal-dividers-color);
+  font-size: 1.4em;
 }
 
 a:link,
@@ -61,12 +71,12 @@ a:hover {
   display: none;
 }
 
-.desktop__content ul {
+ul {
   list-style: none;
   padding-left: 0;
 }
 
-.desktop__content ul li {
+ul li {
   padding-left: 0;
   padding-bottom: 10%;
 }
@@ -183,7 +193,28 @@ a:hover {
   padding-right: 14px;
 }
 
+.slideshow {
+  padding-top: 1%;
+}
+
+.articles {
+  padding-left: 3%;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3%;
+  font-size: 0.7em;
+}
+
 @media (min-width: 600px) {
+  h1 {
+    margin-top: 0;
+    font-size: 1.5em;
+  }
+
   .desktop__content {
     display: block;
   }
@@ -204,7 +235,7 @@ a:hover {
     grid-template-areas:
       "logo social languages"
       "menu menu menu";
-    width: 600px;
+    width: var(--tablet-width);
     margin: auto;
   }
 
@@ -248,6 +279,24 @@ a:hover {
   .nav-pills.nav.menu.mod-list {
     padding-left: 20px;
   }
+
+  .main__section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "slide articles";
+    width: var(--tablet-width);
+    margin: auto;
+    padding-top: 2%;
+    padding-bottom: 3%;
+  }
+
+  .slideshow {
+    grid-area: slide;
+  }
+
+  .articles {
+    grid-area: articles;
+  }
 }
 
 @media (min-width: 850px) {
@@ -256,7 +305,7 @@ a:hover {
     grid-template-areas:
       "logo social languages"
       "logo menu menu";
-    width: 850px;
+    width: var(--desktop-width-small);
   }
 
   .logo {
@@ -270,13 +319,22 @@ a:hover {
   .nav-pills.nav.menu.mod-list {
     padding-left: 35px;
   }
+
+  .main__section {
+    grid-template-columns: 1fr 1.3fr;
+    width: var(--desktop-width-small);
+  }
 }
 
 @media (min-width: 1200px) {
+  h1 {
+    font-size: 2em;
+  }
+
   .top__menu {
     grid-template-columns: 350px 700px 150px;
     grid-template-rows: 70px 100px;
-    width: 1200px;
+    width: var(--desktop-width-large);
   }
 
   .logo {
@@ -302,5 +360,10 @@ a:hover {
     border-top: 1px solid var(--horizontal-dividers-color);
     font-size: 1.8em;
     padding-right: 10px;
+  }
+
+  .main__section {
+    grid-template-columns: 1fr 1fr;
+    width: var(--desktop-width-large);
   }
 }
