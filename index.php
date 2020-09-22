@@ -26,7 +26,7 @@ defined('_JEXEC') or die;
 <body>
     <section class='top__menu'>
         <div class='logo'>
-            <img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" alt="Custom image" class="logo_photo" />
+            <a href='http://localhost:8080/index.php/'><img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" alt="Custom image" class="logo_photo" /></a>
         </div>
         <a id="burger__menu" class="burger__menu mobile__content" role="button" aria-label="Menu">
             <div class="burger__menu__box">

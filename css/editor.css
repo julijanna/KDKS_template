@@ -9,8 +9,8 @@
   --desktop-width-small: 850px;
   --tablet-width: 600px;
 }
-/* 
-div {
+
+/* div {
   border: 1px solid yellow;
 } */
 
@@ -101,9 +101,6 @@ ul li {
   grid-area: burger;
 }
 
-/* Mobile Menu Trigger
-/* ---------------------------------------------------------- */
-
 .burger__menu {
   position: relative;
   cursor: pointer;
@@ -157,8 +154,6 @@ ul li {
   transform: translatex(6px) rotate(-135deg);
 }
 
-/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
-
 .logo {
   grid-area: logo;
   display: block;
@@ -208,6 +203,10 @@ ul li {
   padding-bottom: 3%;
   font-size: 0.7em;
 }
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* bigger screen sizes */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media (min-width: 600px) {
   h1 {
@@ -283,6 +282,7 @@ ul li {
   .main__section {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-column-gap: 2%;
     grid-template-areas: "slide articles";
     width: var(--tablet-width);
     margin: auto;
