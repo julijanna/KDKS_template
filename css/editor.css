@@ -16,12 +16,12 @@
 
 @font-face {
   font-family: "Oswald";
-  src: url("/templates/KDKS/fonts/Oswald-VariableFont_wght.ttf")
+  src: url("/templates/kdks/fonts/Oswald-VariableFont_wght.ttf")
     format("truetype"); /* Safari, Android, iOS */
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("/templates/KDKS/fonts/OpenSans-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+  src: url("/templates/kdks/fonts/OpenSans-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
 }
 
 body {
