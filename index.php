@@ -48,12 +48,13 @@ defined('_JEXEC') or die;
 
     </section>
     <section class='main__section'>
-        <div class='slideshow desktop__content'>
+        <!-- <div class='slideshow desktop__content' id="slideshow">
             <jdoc:include type="modules" name="position-4" style="none" />
-        </div>
+        </div> -->
         <div class='articles'>
-            <h1>KDK Schweiz News</h1>
-            <jdoc:include type="modules" name="position-5" style="none" />
+
+
+            <jdoc:include type="component" />
         </div>
     </section>
 

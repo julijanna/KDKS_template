@@ -16,12 +16,14 @@
 
 @font-face {
   font-family: "Oswald";
-  src: url("/templates/kdks/fonts/Oswald-VariableFont_wght.ttf")
-    format("truetype"); /* Safari, Android, iOS */
+  src: url("/templates/kdks/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+  /* Safari, Android, iOS */
 }
+
 @font-face {
   font-family: "Open Sans";
-  src: url("/templates/kdks/fonts/OpenSans-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+  src: url("/templates/kdks/fonts/OpenSans-Regular.ttf") format("truetype");
+  /* Safari, Android, iOS */
 }
 
 body {
@@ -37,8 +39,7 @@ h1 {
   font-size: 1.4em;
 }
 
-a:link,
-a:visited {
+a:link, a:visited {
   text-decoration: none;
   color: inherit;
 }
@@ -57,10 +58,7 @@ a:hover {
 .top__menu {
   display: grid;
   grid-template-columns: minmax(43px, 0.2fr) 0.8fr 1fr 1fr;
-  grid-template-areas:
-    "burger space logo languages"
-    "menu menu menu menu"
-    "social social social social";
+  grid-template-areas: "burger space logo languages" "menu menu menu menu" "social social social social";
   justify-content: center;
   font-family: var(--menu-font);
   border-bottom: 1px solid var(--horizontal-dividers-color);
@@ -115,9 +113,7 @@ ul li {
   min-height: 33px;
 }
 
-.burger__menu__inner,
-.burger__menu__inner::before,
-.burger__menu__inner::after {
+.burger__menu__inner, .burger__menu__inner::before, .burger__menu__inner::after {
   position: absolute;
   display: block;
   top: 0;
@@ -188,13 +184,36 @@ ul li {
   padding-right: 14px;
 }
 
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* main section */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
 .slideshow {
   padding-top: 1%;
 }
 
 .articles {
   padding-left: 3%;
+  overflow-x: auto;
+  width: 100%;
 }
+
+.articles table {
+  text-align: left;
+  width: 100%;
+}
+
+.articles td {
+  padding: .4em .7em;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* footer */
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .footer {
   display: flex;
@@ -205,7 +224,9 @@ ul li {
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
 /* bigger screen sizes */
+
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media (min-width: 600px) {
@@ -213,60 +234,47 @@ ul li {
     margin-top: 0;
     font-size: 1.5em;
   }
-
   .desktop__content {
     display: block;
   }
-
   .mobile__content {
     display: none;
   }
-
   .top__menu ul li {
     list-style: none;
     display: inline;
     padding-right: 30px;
   }
-
   .top__menu {
     grid-template-columns: 80px 370px 150px;
     grid-template-rows: 55px 70px;
-    grid-template-areas:
-      "logo social languages"
-      "menu menu menu";
+    grid-template-areas: "logo social languages" "menu menu menu";
     width: var(--tablet-width);
     margin: auto;
   }
-
   .logo {
     margin: 3% 3%;
     width: 175px;
   }
-
   .logo_photo {
     width: 50%;
   }
-
   .social {
     padding-left: 35px;
     text-align: left;
   }
-
   .languages {
     margin-left: auto;
     padding-top: 5px;
     font-size: 0.9em;
   }
-
   .languages ul li {
     padding: 0 10px;
   }
-
   #de__main {
     border-right: 1px solid var(--main-red-color);
     padding-right: 14px;
   }
-
   .main__menu {
     grid-area: menu;
     border-top: 1px solid var(--horizontal-dividers-color);
@@ -274,55 +282,48 @@ ul li {
     text-align: left;
     border-bottom: none;
   }
-
   .nav-pills.nav.menu.mod-list {
     padding-left: 20px;
   }
-
   .main__section {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 2%;
-    grid-template-areas: "slide articles";
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-start; */
+    flex-basis: 0;
     width: var(--tablet-width);
     margin: auto;
     padding-top: 2%;
     padding-bottom: 3%;
   }
-
   .slideshow {
-    grid-area: slide;
+    width: 60%;
   }
-
-  .articles {
-    grid-area: articles;
+  .articles td {
+    padding: 1em 1.7em;
   }
 }
 
 @media (min-width: 850px) {
   .top__menu {
     grid-template-columns: 220px 450px 180px;
-    grid-template-areas:
-      "logo social languages"
-      "logo menu menu";
+    grid-template-areas: "logo social languages" "logo menu menu";
     width: var(--desktop-width-small);
   }
-
   .logo {
     margin: auto 3%;
   }
-
   .logo_photo {
     width: 115%;
   }
-
   .nav-pills.nav.menu.mod-list {
     padding-left: 35px;
   }
-
   .main__section {
-    grid-template-columns: 1fr 1.3fr;
+    /* grid-template-columns: 1fr 1.3fr; */
     width: var(--desktop-width-small);
+  }
+  .slideshow {
+    width: 65%;
   }
 }
 
@@ -330,40 +331,33 @@ ul li {
   h1 {
     font-size: 2em;
   }
-
   .top__menu {
     grid-template-columns: 350px 700px 150px;
     grid-template-rows: 70px 100px;
     width: var(--desktop-width-large);
   }
-
   .logo {
     margin: auto 5%;
     width: 250px;
   }
-
   .logo_photo {
     width: 130%;
   }
-
   .social {
     padding-bottom: 10px;
     font-size: 1.1em;
   }
-
   .languages {
     font-size: 1em;
   }
-
   .main__menu {
     grid-area: menu;
     border-top: 1px solid var(--horizontal-dividers-color);
     font-size: 1.8em;
     padding-right: 10px;
   }
-
   .main__section {
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
     width: var(--desktop-width-large);
   }
 }
