@@ -7,7 +7,9 @@
   --menu-font: "Oswald";
   --body-font: "Open Sans";
   --form-font: "Quicksand-Light";
-  --body-font-deafult-size: 18px;
+  --body-font-deafult-size-desktop: 20px;
+  --body-font-deafult-size-tablet: 18px;
+  --body-font-deafult-size-mobile: 16px;
   --desktop-width-large: 1200px;
   --desktop-width-small: 850px;
   --tablet-width: 600px;
@@ -39,7 +41,7 @@ body {
   background-color: var(--background-color);
   color: var(--main-font-color);
   font-family: var(--body-font);
-  font-size: var(--body-font-deafult-size);
+  font-size: var(--body-font-deafult-size-mobile);
 }
 
 h1 {
@@ -213,9 +215,9 @@ ul li {
   text-align: left;
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.8em;
+  font-size: calc(var(--body-font-deafult-size-mobile) - 3px);
 }
-
+ 
 .articles table tr:nth-child(even) td {
   background-color: var(--table-rows-color);
 }
@@ -225,18 +227,39 @@ ul li {
 }
 
 #registration {
-  width: 500px;
-  margin: 0 auto;
+  margin: 3% auto 0;
 }
 
 #registration .inputbox {
-  width: 100%;
-  height: 1.4em;
+  width: 97%;
+  height: 2em;
   margin: 1% 0 3%;
-  font-size: 17px;
-  line-height: 2em;
+  font-size: var(--body-font-deafult-size-mobile);
+  padding-left: 3px;
   font-family: var(--form-font);
-  /* font-weight: 100; */
+}
+
+#registration select {
+  font-size: var(--body-font-deafult-size-mobile);
+  padding-left: 3px;
+  font-family: var(--form-font);
+  border: none;
+  cursor: pointer;
+}
+
+#registration .btn-primary {
+  width: 100%;
+  border: none;
+  font-family: var(--body-font);
+  font-size: calc(var(--body-font-deafult-size-mobile) + 4px);
+  height: 2.2em;
+  margin: 3% 0;
+  color: var(--main-font-color);
+  background-color: var(--table-rows-color);
+}
+
+#registration p {
+  font-size: calc(var(--body-font-deafult-size-mobile) - 2px);
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -260,9 +283,12 @@ ul li {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media (min-width: 600px) {
+  body {
+    font-size: var(--body-font-deafult-size-tablet);
+  }
   h1 {
     margin-top: 0;
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
   .desktop__content {
     display: block;
@@ -273,7 +299,7 @@ ul li {
   .top__menu ul li {
     list-style: none;
     display: inline;
-    padding-right: 30px;
+    padding-right: 20px;
   }
   .top__menu {
     grid-template-columns: 80px 370px 150px;
@@ -318,7 +344,6 @@ ul li {
   .main__section {
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-start; */
     flex-basis: 0;
     width: var(--tablet-width);
     margin: auto;
@@ -328,12 +353,37 @@ ul li {
   .slideshow {
     width: 60%;
   }
+  .articles table {
+    font-size: calc(var(--body-font-deafult-size-tablet) - 4px);
+  }
   .articles td {
     padding: 1em 1.7em;
+  }
+  #registration {
+    width: 500px;
+  }
+  #registration .inputbox {
+    width: 100%;
+    font-size: calc(var(--body-font-deafult-size-tablet) + 1px);
+  }
+  #registration select {
+    font-size: calc(var(--body-font-deafult-size-tablet) + 1px);
+  }
+  #registration .btn-primary {
+    font-size: calc(var(--body-font-deafult-size-tablet) + 4px);
+  }
+  #registration p {
+    font-size: 14px;
+  }
+  #registration p {
+    font-size: calc(var(--body-font-deafult-size-tablet) - 2px);
   }
 }
 
 @media (min-width: 850px) {
+  body {
+    font-size: var(--body-font-deafult-size-desktop);
+  }
   .top__menu {
     grid-template-columns: 220px 450px 180px;
     grid-template-areas: "logo social languages" "logo menu menu";
@@ -349,11 +399,28 @@ ul li {
     padding-left: 35px;
   }
   .main__section {
-    /* grid-template-columns: 1fr 1.3fr; */
     width: var(--desktop-width-small);
+  }
+  .main__menu {
+    font-size: 1.2em;
   }
   .slideshow {
     width: 65%;
+  }
+  .articles table {
+    font-size: calc(var(--body-font-deafult-size-desktop) - 5px);
+  }
+  #registration {
+    width: 600px;
+  }
+  #registration .inputbox, #registration select {
+    font-size: calc(var(--body-font-deafult-size-desktop) + 1px);
+  }
+  #registration .btn-primary {
+    font-size: calc(var(--body-font-deafult-size-desktop) + 4px);
+  }
+  #registration p {
+    font-size: calc(var(--body-font-deafult-size-desktop) - 2px);
   }
 }
 
