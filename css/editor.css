@@ -3,8 +3,11 @@
   --main-font-color: #fff;
   --main-red-color: #cc0000;
   --horizontal-dividers-color: #aeaeae;
+  --table-rows-color: #3c3c3c;
   --menu-font: "Oswald";
   --body-font: "Open Sans";
+  --form-font: "Quicksand-Light";
+  --body-font-deafult-size: 18px;
   --desktop-width-large: 1200px;
   --desktop-width-small: 850px;
   --tablet-width: 600px;
@@ -26,10 +29,17 @@
   /* Safari, Android, iOS */
 }
 
+@font-face {
+  font-family: "Quicksand-Light";
+  src: url("/templates/kdks/fonts/Quicksand-Light.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+
 body {
   background-color: var(--background-color);
   color: var(--main-font-color);
-  font-family: "Open Sans";
+  font-family: var(--body-font);
+  font-size: var(--body-font-deafult-size);
 }
 
 h1 {
@@ -195,7 +205,6 @@ ul li {
 }
 
 .articles {
-  padding-left: 3%;
   overflow-x: auto;
   width: 100%;
 }
@@ -203,10 +212,31 @@ ul li {
 .articles table {
   text-align: left;
   width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8em;
+}
+
+.articles table tr:nth-child(even) td {
+  background-color: var(--table-rows-color);
 }
 
 .articles td {
   padding: .4em .7em;
+}
+
+#registration {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#registration .inputbox {
+  width: 100%;
+  height: 1.4em;
+  margin: 1% 0 3%;
+  font-size: 17px;
+  line-height: 2em;
+  font-family: var(--form-font);
+  /* font-weight: 100; */
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
