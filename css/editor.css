@@ -217,7 +217,7 @@ ul li {
   border-collapse: collapse;
   font-size: calc(var(--body-font-deafult-size-mobile) - 3px);
 }
- 
+
 .articles table tr:nth-child(even) td {
   background-color: var(--table-rows-color);
 }
@@ -450,7 +450,7 @@ ul li {
   .main__menu {
     grid-area: menu;
     border-top: 1px solid var(--horizontal-dividers-color);
-    font-size: 1.8em;
+    font-size: 1.6em;
     padding-right: 10px;
   }
   .main__section {
