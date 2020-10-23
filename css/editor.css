@@ -51,6 +51,28 @@ h1 {
   font-size: 1.4em;
 }
 
+div[itemprop="blogPost"] h2 {
+  color: var(--main-red-color);
+  font-size: 1.4em;
+  margin: 3% 0 0;
+}
+
+.leading-0 h2 {
+  margin: 0;
+}
+
+div[itemprop="blogPost"] dd {
+  font-size: 0.8em;
+  margin-left: 0;
+  color: var(--horizontal-dividers-color);
+}
+
+div[itemprop="blogPost"] dl {
+  font-size: 0.8em;
+  margin: 0;
+  padding: 0;
+}
+
 a:link, a:visited {
   text-decoration: none;
   color: inherit;
@@ -88,12 +110,12 @@ ul {
 
 ul li {
   padding-left: 0;
-  padding-bottom: 10%;
+  padding-bottom: 20%;
 }
 
 .main__menu {
   grid-area: menu;
-  font-size: 1.2em;
+  font-size: 1.5em;
   border-top: 1px solid var(--horizontal-dividers-color);
   border-bottom: 1px solid var(--horizontal-dividers-color);
   text-align: center;
@@ -208,7 +230,8 @@ ul li {
 
 .articles {
   overflow-x: auto;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .articles table {
@@ -222,8 +245,14 @@ ul li {
   background-color: var(--table-rows-color);
 }
 
+.articles thead {
+  color: var(--main-red-color);
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
 .articles td {
-  padding: .4em .7em;
+  padding: 0.4em 2em 0.4em 0;
 }
 
 #registration {
@@ -289,6 +318,9 @@ ul li {
   h1 {
     margin-top: 0;
     font-size: 1.3em;
+  }
+  ul li {
+    padding-bottom: 0;
   }
   .desktop__content {
     display: block;
@@ -357,7 +389,7 @@ ul li {
     font-size: calc(var(--body-font-deafult-size-tablet) - 4px);
   }
   .articles td {
-    padding: 1em 1.7em;
+    padding: 1em 1.7em 1em 0;
   }
   #registration {
     width: 500px;
