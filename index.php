@@ -28,15 +28,15 @@ defined('_JEXEC') or die;
         <div class='logo'>
             <a href='http://localhost:8080/index.php/'><img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" alt="Custom image" class="logo_photo" /></a>
         </div>
-        <a id="burger__menu" class="burger__menu mobile__content" role="button" aria-label="Menu">
+        <a id="burger__menu" class="burger__menu mobile__menu" role="button" aria-label="Menu">
             <div class="burger__menu__box">
                 <div class="burger__menu__inner"></div>
             </div>
         </a>
-        <div class='main__menu desktop__content'>
+        <div class='main__menu desktop__menu'>
             <jdoc:include type="modules" name="position-1" style="none" />
         </div>
-        <div class='social desktop__content'>
+        <div class='social desktop__menu'>
             <jdoc:include type="modules" name="position-2" style="none" />
         </div>
         <div class='languages'>
@@ -47,10 +47,11 @@ defined('_JEXEC') or die;
         </div>
 
     </section>
+
     <section class='main__section'>
-        <!-- <div class='slideshow desktop__content' id="slideshow">
+        <div class='slideshow desktop__content' id="slideshow">
             <jdoc:include type="modules" name="position-4" style="none" />
-        </div> -->
+        </div>
         <div class='articles'>
 
 
