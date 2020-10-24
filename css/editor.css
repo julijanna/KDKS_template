@@ -447,8 +447,9 @@ ul li {
   }
   .slideshow {
     width: 50%;
-    margin: 0 5%;
+    padding: 0 5%;
     float: left;
+    background-color: var(--background-color);
   }
   .articles {
     overflow-x: visible;
