@@ -249,7 +249,7 @@ ul li {
 }
 
 .articles img {
-  width: 50%;
+  width: 100%;
   display: block;
   margin: 3% auto;
 }
@@ -453,6 +453,9 @@ ul li {
   }
   .articles {
     overflow-x: visible;
+  }
+  .articles img {
+    width: 50%;
   }
   .articles table {
     font-size: calc(var(--body-font-deafult-size-desktop) - 5px);
