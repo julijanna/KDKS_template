@@ -26,7 +26,7 @@ defined('_JEXEC') or die;
 <body>
     <section class='top__menu'>
         <div class='logo'>
-            <a href='http://localhost:8080/index.php/'><img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" alt="Custom image" class="logo_photo" /></a>
+            <a href='/'><img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" alt="Custom image" class="logo_photo" /></a>
         </div>
         <a id="burger__menu" class="burger__menu mobile__menu" role="button" aria-label="Menu">
             <div class="burger__menu__box">
@@ -41,8 +41,8 @@ defined('_JEXEC') or die;
         </div>
         <div class='languages'>
             <ul id='languages__list'>
-                <li id='de__main'><a href="https://kraftdreikampf.ch/de/">DE</a></li>
-                <li id='fr__main'><a href="https://kraftdreikampf.ch//">FR</a></li>
+                <li id='de__main'><a href="/de/">DE</a></li>
+                <li id='fr__main'><a href="/fr/">FR</a></li>
             </ul>
         </div>
 
@@ -53,14 +53,12 @@ defined('_JEXEC') or die;
             <jdoc:include type="modules" name="position-4" style="none" />
         </div>
         <div class='articles'>
-
-
             <jdoc:include type="component" />
         </div>
     </section>
 
     <section class='footer'>
-        <p class='footer__text'>Datenschutz / Impressum</p>
+        <p class='footer__text'><a href="/impressum/">Datenschutz / Impressum<a></p>
     </section>
 
     <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/js/app.js"></script>
