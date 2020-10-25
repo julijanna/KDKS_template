@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9" type="template">
+<extension version="3.9" type="template" method="upgrade">
 	<name>KDKS</name>
-	<creationDate>2008-05-01</creationDate>
+	<creationDate>2020-05-01</creationDate>
 	<author>Gosia</author>
-	<authorEmail>john@example.com</authorEmail>
-	<authorUrl>http://www.example.com</authorUrl>
-	<copyright>John Doe 2008</copyright>
+	<authorEmail>info@kraftdreikampf.ch</authorEmail>
+	<authorUrl>http://kraftdreikampf.ch</authorUrl>
+	<copyright>KDKS 2020</copyright>
 	<license>GNU/GPL</license>
 	<version>1.0.2</version>
 	<description>My New Template</description>
