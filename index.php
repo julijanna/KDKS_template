@@ -19,6 +19,7 @@ defined('_JEXEC') or die;
 
 <head>
     <jdoc:include type="head" />
+    <link rel="shortcut icon" href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/kdkswhite-1.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/editor.css" type="text/css" />
 </head>
