@@ -62,6 +62,10 @@ defined('_JEXEC') or die;
         <p class='footer__text'><a href="/impressum/">Datenschutz / Impressum<a></p>
     </section>
 
+    <section class='cookie__banner'>
+        <jdoc:include type="modules" name="position-5" style="none" />
+    </section>
+
     <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/js/app.js"></script>
 </body>
 
