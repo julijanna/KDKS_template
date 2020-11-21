@@ -23,7 +23,7 @@ const navChildren = document.getElementsByClassName("nav-child");
 setMenuHandlers(window.innerWidth);
 
 window.onresize = function () {
-  setMenuHandlers(window.innerWidth);
+  setMenuHandlers(screenWidth);
 };
 
 function setMenuHandlers(windowSize) {
@@ -60,32 +60,35 @@ if (morePostsDiv.length > 0) {
 
 // add class to the table
 
-let clubsCollection = document.getElementsByTagName("table")[0].children[1]
-  .children;
-const clubs = [];
+function createClubs() {
+  let clubsCollection = document.getElementsByTagName("table")[0].children[1]
+    .children;
+  const clubs = [];
 
-for (let item of clubsCollection) {
-  let lon = parseFloat(item.getAttribute("data-coords").split(",")[1]);
-  let lat = parseFloat(item.getAttribute("data-coords").split(",")[0]);
+  for (let item of clubsCollection) {
+    let strCords = item.getAttribute("data-coords");
+    let lon = parseFloat(item.getAttribute("data-coords").split(",")[1]);
+    let lat = parseFloat(item.getAttribute("data-coords").split(",")[0]);
 
-  club = {
-    coords: [lon, lat],
-    name: item.children[1].innerHTML,
-  };
-  clubs.push(club);
+    club = {
+      coords: [lon, lat],
+      strCords: strCords,
+      name: item.children[1].innerHTML,
+    };
+    clubs.push(club);
+  }
+  return clubs;
 }
 
-console.log(clubs[0].coords);
-
-function drawMap(switzerland) {
-  let length = 800;
-  let width = 400;
-  let pinLength = 20;
-  let pinWidth = 14;
+function drawMap(switzerland, clubs, multiplicator = 1, multiplicatorPin = 1) {
+  let length = 800 * multiplicator;
+  let width = 400 * multiplicator;
+  let pinLength = 20 * multiplicatorPin;
+  let pinWidth = 14 * multiplicatorPin;
   let projection = d3.geoMercator();
   projection
-    .center([8, 46.8])
-    .scale(7500)
+    .center([8.4, 46.8])
+    .scale(7500 * multiplicator)
     .translate([length / 2, width / 2]);
 
   let path = d3.geoPath().projection(projection);
@@ -100,20 +103,6 @@ function drawMap(switzerland) {
     .append("path")
     .attr("d", path)
     .attr("stroke", "#ccc");
-
-  // container
-  //   .selectAll("circle")
-  //   .data(clubs)
-  //   .enter()
-  //   .append("circle")
-  //   .attr("cx", function (d) {
-  //     return projection(d.coords)[0];
-  //   })
-  //   .attr("cy", function (d) {
-  //     return projection(d.coords)[1];
-  //   })
-  //   .attr("r", "4px")
-  //   .attr("fill", "blue");
 
   d3.select("body")
     .append("div")
@@ -146,9 +135,34 @@ function drawMap(switzerland) {
     })
     .on("mouseout", function () {
       d3.select("#clubs__tooltip").style("opacity", 0).text("");
+    })
+    .on("click", function (d) {
+      console.log(d.coords);
+      scrollToSection(d);
     });
 }
 
-d3.json("/templates/KDKS/js/switzerland.geojson").then((data) =>
-  drawMap(data.features)
-);
+function scrollToSection(element) {
+  let targetRow = document.querySelector(
+    "[data-coords = '" + element.strCords + "']"
+  );
+  console.log(targetRow.offsetTop);
+  targetRow.scrollIntoView({ behavior: "smooth" });
+}
+
+function createMap(data, multiplicator, multiplicatorPin) {
+  let clubs = createClubs();
+  drawMap(data.features, clubs, multiplicator, multiplicatorPin);
+}
+
+d3.json("/templates/KDKS/js/switzerland.geojson").then(function (data) {
+  let multiplicator = 1;
+  let multiplicatorPin = 1;
+  if (screenWidth >= 1200) {
+    multiplicator = 1.5;
+    multiplicatorPin = 1.5;
+  } else if (screenWidth < 850) {
+    multiplicator = screenWidth / 800;
+  }
+  createMap(data, multiplicator, multiplicatorPin);
+});

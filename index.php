@@ -57,7 +57,7 @@ unset($doc->base);
             <jdoc:include type="modules" name="position-4" style="none" />
         </div>
         <div class='articles'>
-            <div>
+            <div id="clubs__chart__div">
                 <svg id="clubs__chart"></svg>
             </div>
             <jdoc:include type="component" />

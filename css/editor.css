@@ -22,6 +22,10 @@
   font-size: 0.8em;
 }
 
+#clubs__chart__div {
+  margin: 5% 0;
+}
+
 @font-face {
   font-family: "Oswald";
   src: url("/templates/kdks/fonts/Oswald-VariableFont_wght.ttf")
@@ -380,6 +384,9 @@ div.cookie-decline {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media (min-width: 850px) {
+  #clubs__chart__div {
+    margin: 3% 0;
+  }
   body {
     font-size: var(--body-font-deafult-size-desktop);
   }
@@ -466,7 +473,6 @@ div.cookie-decline {
   }
   .main__menu .nav-child.styled li {
     padding: 2% 3%;
-    /* border: 1px solid var(--table-rows-color); */
   }
   .main__section {
     width: var(--desktop-width-small);
