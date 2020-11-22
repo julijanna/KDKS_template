@@ -1,5 +1,9 @@
 // handling mobile burger menu
 
+/**
+ * @description function hides desktoo menus and opens the burger mobile menu on click
+ */
+
 document.getElementById("burger__menu").onclick = function () {
   document.querySelector("body").classList.toggle("burger__menu__open");
   let desktopMenus = document.getElementsByClassName("desktop__menu");
@@ -17,14 +21,19 @@ document.getElementById("burger__menu").onclick = function () {
 
 // handling desktop submenus
 
-const screenWidth = window.innerWidth;
 const navChildren = document.getElementsByClassName("nav-child");
+const screenWidth = window.innerWidth;
 
-setMenuHandlers(window.innerWidth);
+setMenuHandlers(screenWidth);
 
 window.onresize = function () {
-  setMenuHandlers(screenWidth);
+  setMenuHandlers(window.innerWidth);
 };
+
+/**
+ * @description for desktop it adds the drop down menus to be styled
+ * @param {int} windowSize - a window width
+ */
 
 function setMenuHandlers(windowSize) {
   if (windowSize >= 850) {
@@ -41,14 +50,6 @@ function setMenuHandlers(windowSize) {
   }
 }
 
-// blending out slideshow when not on main site
-
-const slideshowDiv = document.getElementById("slideshow");
-
-if (slideshowDiv.childNodes.length <= 1) {
-  slideshowDiv.style.display = "none";
-}
-
 // blending out links to more posts
 
 const morePostsDiv = document.getElementsByClassName("items-more");
@@ -56,9 +57,14 @@ if (morePostsDiv.length > 0) {
   morePostsDiv[0].style.display = "none";
 }
 
-// clubs map visualization
+// clubs map visualization starts
 
-// add class to the table
+const clubsMapDiv = document.getElementById("clubs__chart__div");
+let resizeTimer;
+
+/**
+ * @description creating an object with all club names and coordinates
+ */
 
 function createClubs() {
   let clubsCollection = document.getElementsByTagName("table")[0].children[1]
@@ -80,21 +86,34 @@ function createClubs() {
   return clubs;
 }
 
+/**
+ * @description drawing a clubs map with svg pins on it
+ * @param {geojson.features} switzerland - switzerland geojson .features
+ * * @param {array} clubs - clubs objects array
+ * * @param {float} multiplicator - multiplicator for the map on different screen sizes
+ * * @param {float} multiplicatorPin - multiplicator for the pin sizes on the map
+ */
+
 function drawMap(switzerland, clubs, multiplicator = 1, multiplicatorPin = 1) {
-  let length = 800 * multiplicator;
-  let width = 400 * multiplicator;
+  let width = 800 * multiplicator;
+  let height = 400 * multiplicator;
   let pinLength = 20 * multiplicatorPin;
   let pinWidth = 14 * multiplicatorPin;
   let projection = d3.geoMercator();
   projection
     .center([8.4, 46.8])
     .scale(7500 * multiplicator)
-    .translate([length / 2, width / 2]);
+    .translate([width / 2, height / 2]);
 
   let path = d3.geoPath().projection(projection);
-  let container = d3.select("#clubs__chart");
+  let container = d3.create("svg");
+  let containerDiv = d3.select("#clubs__chart__div");
 
-  container.attr("width", length).attr("height", width);
+  container
+    .attr("width", width)
+    .attr("height", height)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("id", "clubs__chart");
 
   container
     .selectAll("path")
@@ -137,10 +156,16 @@ function drawMap(switzerland, clubs, multiplicator = 1, multiplicatorPin = 1) {
       d3.select("#clubs__tooltip").style("opacity", 0).text("");
     })
     .on("click", function (d) {
-      console.log(d.coords);
       scrollToSection(d);
     });
+
+  containerDiv.append(() => container.node());
 }
+
+/**
+ * @description scrolling funtion to go to the corresponding table row on pin click
+ *  * * @param {object} element - clubs object
+ */
 
 function scrollToSection(element) {
   let targetRow = document.querySelector(
@@ -150,19 +175,39 @@ function scrollToSection(element) {
   targetRow.scrollIntoView({ behavior: "smooth" });
 }
 
-function createMap(data, multiplicator, multiplicatorPin) {
+/**
+ * @description organizer function for creating a map
+ */
+
+function createMap() {
   let clubs = createClubs();
-  drawMap(data.features, clubs, multiplicator, multiplicatorPin);
+  d3.json("/templates/KDKS/js/switzerland.geojson").then(function (data) {
+    let multiplicator = 1;
+    let multiplicatorPin = 1;
+    if (window.innerWidth >= 1200) {
+      multiplicator = 1.5;
+      multiplicatorPin = 1.5;
+    } else if (window.innerWidth < 850) {
+      multiplicator = window.innerWidth / 800;
+    }
+    drawMap(data.features, clubs, multiplicator, multiplicatorPin);
+  });
 }
 
-d3.json("/templates/KDKS/js/switzerland.geojson").then(function (data) {
-  let multiplicator = 1;
-  let multiplicatorPin = 1;
-  if (screenWidth >= 1200) {
-    multiplicator = 1.5;
-    multiplicatorPin = 1.5;
-  } else if (screenWidth < 850) {
-    multiplicator = screenWidth / 800;
-  }
-  createMap(data, multiplicator, multiplicatorPin);
-});
+// checking if user is on corresponding page for the clubs map (vereine / clubs)
+// if yes. calling the organizer function for creating a map
+// on resize, re-render the map to fit the browser size
+
+if (clubsMapDiv.childNodes.length <= 1) {
+  clubsMapDiv.style.display = "none";
+} else {
+  createMap();
+  window.onresize = function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      let clubsChart = document.getElementById("clubs__chart");
+      clubsMapDiv.removeChild(clubsChart);
+      createMap();
+    }, 250);
+  };
+}

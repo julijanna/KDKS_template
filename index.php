@@ -53,12 +53,9 @@ unset($doc->base);
     </section>
 
     <section class='main__section'>
-        <div class='slideshow desktop__content' id="slideshow">
-            <jdoc:include type="modules" name="position-4" style="none" />
-        </div>
         <div class='articles'>
             <div id="clubs__chart__div">
-                <svg id="clubs__chart"></svg>
+            <jdoc:include type="modules" name="position-3" style="none" />
             </div>
             <jdoc:include type="component" />
         </div>
