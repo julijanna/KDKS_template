@@ -133,7 +133,7 @@ function drawMap(switzerland, clubs, multiplicator = 1, multiplicatorPin = 1) {
     .data(clubs)
     .enter()
     .append("svg:image")
-    .attr("xlink:href", "/templates/KDKS/images/Map_pin_icon.svg")
+    .attr("xlink:href", "/templates/kdks/images/Map_pin_icon.svg")
     .attr("x", function (d) {
       return projection(d.coords)[0] - pinWidth / 2;
     })
@@ -181,7 +181,7 @@ function scrollToSection(element) {
 
 function createMap() {
   let clubs = createClubs();
-  d3.json("/templates/KDKS/js/switzerland.geojson").then(function (data) {
+  d3.json("/templates/kdks/js/switzerland.geojson").then(function (data) {
     let multiplicator = 1;
     let multiplicatorPin = 1;
     if (window.innerWidth >= 1200) {
