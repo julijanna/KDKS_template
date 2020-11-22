@@ -4,7 +4,7 @@
   --main-red-color: #cc0000;
   --horizontal-dividers-color: #aeaeae;
   --table-rows-color: #3c3c3c;
-  --nav-children-background-color: #1E1E1E;
+  --nav-children-background-color: #1e1e1e;
   --menu-font: "Oswald";
   --body-font: "Open Sans";
   --form-font: "Quicksand-Light";
@@ -16,9 +16,35 @@
   --tablet-width: 600px;
 }
 
+#clubs__tooltip {
+  background-color: #3c3c3c;
+  padding: 5px 5px;
+  font-size: 0.8em;
+}
+
+#clubs__chart__div {
+  margin: 5% 0;
+}
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* aspect ratio */
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content-responsive {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
 @font-face {
   font-family: "Oswald";
-  src: url("/templates/kdks/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+  src: url("/templates/kdks/fonts/Oswald-VariableFont_wght.ttf")
+    format("truetype");
   /* Safari, Android, iOS */
 }
 
@@ -48,7 +74,8 @@ h1 {
   font-size: 1.4em;
 }
 
-div[itemprop="blogPost"] h2, .page-header h2 {
+div[itemprop="blogPost"] h2,
+.page-header h2 {
   color: var(--main-red-color);
   font-size: 1.4em;
   margin: 3% 0 0;
@@ -60,19 +87,22 @@ div[itemprop="articleBody"] h2 {
   margin: 3% 0 0;
 }
 
-div[itemprop="blogPost"] dd, .article-info dd {
+div[itemprop="blogPost"] dd,
+.article-info dd {
   font-size: 0.8em;
   margin-left: 0;
   color: var(--horizontal-dividers-color);
 }
 
-div[itemprop="blogPost"] dl, .articles dl {
+div[itemprop="blogPost"] dl,
+.articles dl {
   font-size: 0.8em;
   margin: 0;
   padding: 0;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   text-decoration: none;
   color: inherit;
 }
@@ -164,7 +194,9 @@ ul li {
   min-height: 33px;
 }
 
-.burger__menu__inner, .burger__menu__inner::before, .burger__menu__inner::after {
+.burger__menu__inner,
+.burger__menu__inner::before,
+.burger__menu__inner::after {
   position: absolute;
   display: block;
   top: 0;
@@ -292,7 +324,8 @@ ul li {
   font-family: var(--form-font);
 }
 
-#registration select, .js-stools select {
+#registration select,
+.js-stools select {
   font-size: var(--body-font-deafult-size-mobile);
   padding-left: 3px;
   font-family: var(--form-font);
@@ -346,7 +379,8 @@ ul li {
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-.footer, div.cookie-decline {
+.footer,
+div.cookie-decline {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,6 +399,9 @@ div.cookie-decline {
 /* --------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media (min-width: 850px) {
+  #clubs__chart__div {
+    margin: 3% 0;
+  }
   body {
     font-size: var(--body-font-deafult-size-desktop);
   }
@@ -451,7 +488,6 @@ div.cookie-decline {
   }
   .main__menu .nav-child.styled li {
     padding: 2% 3%;
-    /* border: 1px solid var(--table-rows-color); */
   }
   .main__section {
     width: var(--desktop-width-small);
