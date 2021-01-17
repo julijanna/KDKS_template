@@ -359,6 +359,11 @@ ul li {
   background-color: var(--table-rows-color);
 }
 
+.articles form .btn-primary:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
 .articles form p {
   font-size: calc(var(--body-font-deafult-size-mobile) - 2px);
 }
