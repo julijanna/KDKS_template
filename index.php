@@ -10,6 +10,9 @@
 
 defined('_JEXEC') or die;
 
+$doc = JFactory::getDocument();
+unset($doc->base);
+
 // include __DIR__ . '/component.php';
 
 ?>
@@ -50,9 +53,6 @@ defined('_JEXEC') or die;
     </section>
 
     <section class='main__section'>
-        <div class='slideshow desktop__content' id="slideshow">
-            <jdoc:include type="modules" name="position-4" style="none" />
-        </div>
         <div class='articles'>
         <jdoc:include type="message" />
             <div id="clubs__chart__div">
@@ -70,6 +70,7 @@ defined('_JEXEC') or die;
         <jdoc:include type="modules" name="position-5" style="none" />
     </section>
 
+    <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/js/d3.js"></script>
     <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/js/app.js"></script>
 </body>
 
