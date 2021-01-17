@@ -54,6 +54,7 @@ unset($doc->base);
 
     <section class='main__section'>
         <div class='articles'>
+        <jdoc:include type="message" />
             <div id="clubs__chart__div">
             <jdoc:include type="modules" name="position-3" style="none" />
             </div>

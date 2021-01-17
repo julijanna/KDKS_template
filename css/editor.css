@@ -301,6 +301,25 @@ ul li {
   background-color: var(--table-rows-color);
 }
 
+#onlinesubmission p {
+  background-color: var(--table-rows-color);
+  padding: 1% 1.5%;
+}
+
+#system-message {
+  border: 1px solid var(--main-red-color);
+  color: var(--main-red-color);
+  padding: 1% 1.5%;
+}
+
+#system-message .close {
+  float: right;
+}
+
+#system-message h4 {
+  margin-top: 0;
+}
+
 .articles thead {
   color: var(--main-red-color);
   font-size: 1.3em;
@@ -311,11 +330,7 @@ ul li {
   padding: 0.4em 2em 0.4em 1em;
 }
 
-#registration {
-  margin: 3% auto 0;
-}
-
-#registration .inputbox {
+.articles form .inputbox {
   width: 97%;
   height: 2em;
   margin: 1% 0 3%;
@@ -324,7 +339,7 @@ ul li {
   font-family: var(--form-font);
 }
 
-#registration select,
+.articles form select,
 .js-stools select {
   font-size: var(--body-font-deafult-size-mobile);
   padding-left: 3px;
@@ -333,7 +348,7 @@ ul li {
   cursor: pointer;
 }
 
-#registration .btn-primary {
+.articles form .btn-primary {
   width: 100%;
   border: none;
   font-family: var(--body-font);
@@ -344,8 +359,21 @@ ul li {
   background-color: var(--table-rows-color);
 }
 
-#registration p {
+.articles form p {
   font-size: calc(var(--body-font-deafult-size-mobile) - 2px);
+}
+
+#jform_accept_rules-lbl,
+#jform_accept_no_cheat-lbl {
+  float: right;
+  width: 87%;
+  margin: 1% 1% 3%;
+}
+
+#jform_accept_rules,
+#jform_accept_no_cheat {
+  float: left;
+  width: 10%;
 }
 
 .pagination {
@@ -515,23 +543,19 @@ div.cookie-decline {
     float: left;
     background-color: var(--background-color);
   }
-  #registration {
-    width: 600px;
-  }
-  #registration .inputbox {
-    width: 100%;
+  .articles form .inputbox {
     font-size: calc(var(--body-font-deafult-size-desktop) + 1px);
   }
-  #registration select {
+  .articles form select {
     font-size: calc(var(--body-font-deafult-size-desktop) + 1px);
   }
-  #registration .btn-primary {
+  .articles form .btn-primary {
     font-size: calc(var(--body-font-deafult-size-desktop) + 4px);
   }
-  #registration p {
+  .articles form p {
     font-size: 14px;
   }
-  #registration p {
+  .articles form p {
     font-size: calc(var(--body-font-deafult-size-desktop) - 2px);
   }
   .pagination ul {
