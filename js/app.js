@@ -23,7 +23,6 @@ const navChildren = document.getElementsByClassName("nav-child");
 setMenuHandlers(window.innerWidth);
 
 window.onresize = function () {
-  console.log(window.innerWidth);
   setMenuHandlers(window.innerWidth);
 };
 

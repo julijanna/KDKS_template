@@ -54,6 +54,7 @@ defined('_JEXEC') or die;
             <jdoc:include type="modules" name="position-4" style="none" />
         </div>
         <div class='articles'>
+        <jdoc:include type="message" />
             <jdoc:include type="component" />
         </div>
     </section>
