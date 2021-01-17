@@ -55,7 +55,7 @@ defined('_JEXEC') or die;
         </div>
         <div class='articles'>
         <jdoc:include type="message" />
-        <div id="clubs__chart__div">
+            <div id="clubs__chart__div">
             <jdoc:include type="modules" name="position-3" style="none" />
             </div>
             <jdoc:include type="component" />
