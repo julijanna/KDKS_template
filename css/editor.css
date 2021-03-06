@@ -74,10 +74,6 @@ h1 {
   font-size: 1.4em;
 }
 
-/* h2[itemprop="url"] {
-  text-decoration: none;
-} */
-
 div[itemprop="blogPost"] h2,
 .page-header h2 {
   color: var(--main-red-color);
