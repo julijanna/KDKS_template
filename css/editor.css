@@ -375,14 +375,14 @@ ul li {
 }
 
 #jform_accept_rules-lbl,
-#jform_accept_no_cheat-lbl {
+#jform_accept_liability-lbl {
   float: right;
   width: 87%;
   margin: 1% 1% 3%;
 }
 
 #jform_accept_rules,
-#jform_accept_no_cheat {
+#jform_accept_liability {
   float: left;
   width: 10%;
 }
