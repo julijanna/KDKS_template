@@ -471,7 +471,7 @@ div.cookie-decline {
   }
   .top__menu ul li {
     list-style: none;
-    display: inline;
+    display: inline-block;
     padding-right: 20px;
   }
   .top__menu {
@@ -523,7 +523,8 @@ div.cookie-decline {
     flex-direction: column;
     background-color: var(--nav-children-background-color);
     z-index: 1;
-    padding: 0;
+    padding: 0 1% 0 0;
+    white-space: nowrap;
   }
   .main__menu .nav-child.styled li {
     padding: 2% 3%;
