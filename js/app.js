@@ -21,7 +21,7 @@ document.getElementById("burger__menu").onclick = function () {
 
 // handling desktop submenus
 
-const navChildren = document.getElementsByClassName("nav-child");
+const navChildren = document.getElementsByClassName("mod-menu__sub");
 const screenWidth = window.innerWidth;
 
 setMenuHandlers(screenWidth);
@@ -39,12 +39,12 @@ function setMenuHandlers(windowSize) {
   if (windowSize >= 850) {
     document.querySelectorAll(".parent").forEach((item) => {
       item.addEventListener("mouseover", (event) => {
-        item.childNodes[1].classList.toggle("styled");
-        item.childNodes[1].classList.toggle("unstyled");
+        item.childNodes[1].classList.toggle("list-styled");
+        item.childNodes[1].classList.toggle("list-unstyled");
       });
       item.addEventListener("mouseout", (event) => {
-        item.childNodes[1].classList.toggle("styled");
-        item.childNodes[1].classList.toggle("unstyled");
+        item.childNodes[1].classList.toggle("list-styled");
+        item.childNodes[1].classList.toggle("list-unstyled");
       });
     });
   }
